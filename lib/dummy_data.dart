@@ -5,7 +5,7 @@ import './models/category.dart';
 const DUMMY_CATEGORIES = const [
   Category(
     id: 'c1',
-    title: 'Italian',
+    title: 'Indian',
     color: Colors.purple,
   ),
   Category(
@@ -42,5 +42,25 @@ const DUMMY_CATEGORIES = const [
     id: 'c8',
     title: 'Asian',
     color: Colors.lightGreen,
+  ),
+  Category(
+    id: 'c9',
+    title: 'French',
+    color: Colors.indigoAccent,
+  ),
+  Category(
+    id: 'c10',
+    title: 'Summer',
+    color: Colors.deepPurple,
+  ),
+  Category(
+    id: 'c11',
+    title: 'Italian',
+    color: Colors.indigo,
+  ),
+  Category(
+    id: 'c12',
+    title: 'Russian',
+    color: Colors.lime,
   ),
 ];
