@@ -13,7 +13,7 @@ class CategoryMealsScreen extends StatelessWidget {
         title: Text('The Recepies'),
       ),
       body: Center(
-        child: Text('The Recepiesm we get'),
+        child: Text('The Recepies we get'),
       ),
     );
   }
