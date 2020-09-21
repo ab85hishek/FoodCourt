@@ -14,20 +14,22 @@ class CategoryMealsScreen extends StatefulWidget {
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   String categoryTitle;
-  List<Meal> displayedMeal;
+  List<Meal> displayedMeals;
   var _loadedInitData = false;
+  @override
   void initState() {
     //....
     super.initState();
   }
 
+  @override
   void didChangeDependencies() {
     if (!_loadedInitData) {
       final routeArgs =
           ModalRoute.of(context).settings.arguments as Map<String, String>;
       categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
-      displayedMeal = widget.availableMeals.where((meal) {
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
       _loadedInitData = true;
@@ -44,7 +46,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   void _removeMeal(String mealId) {
     setState(() {
-      displayedMeal.removeWhere((meal) => meal.id == mealId);
+      displayedMeals.removeWhere((meal) => meal.id == mealId);
     });
   }
 
@@ -57,16 +59,15 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
-            id: displayedMeal[index].id,
-            title: displayedMeal[index].title,
-            imageUrl: displayedMeal[index].imageUrl,
-            duration: displayedMeal[index].duration,
-            affordability: displayedMeal[index].affordability,
-            complexity: displayedMeal[index].complexity,
-            removeItem: _removeMeal,
+            id: displayedMeals[index].id,
+            title: displayedMeals[index].title,
+            imageUrl: displayedMeals[index].imageUrl,
+            duration: displayedMeals[index].duration,
+            affordability: displayedMeals[index].affordability,
+            complexity: displayedMeals[index].complexity,
           );
         },
-        itemCount: displayedMeal.length,
+        itemCount: displayedMeals.length,
       ),
     );
   }
